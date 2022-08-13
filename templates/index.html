@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Dementia Detection Web-Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='/static/style.css') }}"> -->
+<link rel="stylesheet" href="/static/style.css">
+  
+</head>
+<body>
+ <div class="container">
+	<h1>Detect Dementia</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <div class="formInputs">
+
+        <div>
+          <input type="number" name="Age" placeholder="Age" required="required" />
+          <input type="number" name="Talkative" placeholder=" Talkative (0 or 1)" required="required" />
+          <input type="number" name="Insomia" placeholder="Insomia (0 or 1)" required="required" />
+          <input type="number" name="Poor Cordination" placeholder="Poor Cordination (0 or 1)" required="required" />
+          <input type="number" name="Wondering tendency" placeholder=" Wondering (0 or 1)" required="required" />
+          <input type="number" name="Picking of Insect" placeholder="Picking of Insect (0 or 1)" required="required" />
+          <input type="number" name="Forgetfulness" placeholder="Forgetfulness (0 or 1)" required="required" />
+
+       </div>
+
+        <div>
+          <input type="number" name="Restlessness" placeholder="Restlessness (0 or 1)" required="required" />
+          <input type="number" name="Loss of appetite" placeholder="Loss of appetite (0 or 1)" required="required" />
+          <input type="number" name="Negligence of personal hygine" placeholder="Negligence of personal hygine (0 or 1)" required="required" />
+          <input type="number" name="Headache" placeholder="Headache (0 or 1)" required="required" />
+          <input type="number" name="Feeling percecuted" placeholder="Feeling percecuted (0 or 1)" required="required" />
+          <input type="number" name="Violence" placeholder="Violence (0 or 1)" required="required" />
+          <input type="number" name="Agressive" placeholder="Agressive (0 or 1)" required="required" />
+        </div>
+         
+        <div>
+          <input type="number" name="Uncordinated speech" placeholder="Uncordinated speech (0 or 1)" required="required" />
+          <input type="number" name="Hallucination" placeholder="Hallucination ( 0 or 1)" required="required" />  
+          <input type="number" name="Confused state" placeholder="Confused state (0 or 1)" required="required" />
+          <input type="number" name="Destructiveness" placeholder="Destructiveness (0 or 1)" required="required" />
+          <input type="number" name="Uncordinated actions" placeholder="Uncordination (0 or 1)" required="required" />
+          <input type="number" name="verbal assault" placeholder="verbal assault (0 or 1)" required="required" />
+          <input type="number" name="Mutism" placeholder="Mutism (0 or 1)" required="required" />
+        </div>
+
+        <div>
+          <input type="number" name="Tremor" placeholder="Tremor (0 or 1)" required="required" />
+          <input type="number" name="FT" placeholder="FT (0 or 1)" required="required" />
+          <input type="number" name="AB" placeholder="AB (0 or 1)" required="required" />
+          <input type="number" name="RTA" placeholder="RTA (0 or 1)" required="required" />
+          <input type="number" name="Diabetes" placeholder="H.Diabetes (0 or 1)" required="required" />
+          <input type="number" name="Hypertension" placeholder="H.Hypertension (0 or 1)" required="required" />
+          <input type="number" name="Constipation" placeholder="H.Constipation (0 or 1)" required="required" />                
+       </div>
+      
+       <div>
+          <input type="number" name="Pile" placeholder="H.Pile(0 or 1)" required="required" />
+          <select name="PSCH" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <select name="SUR" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <select name="Appearance" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <select name="Mood" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+          <select name="Memmory" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <select name="Insight" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+       </div>
+
+       <div>
+          <select name="Speech" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <select name="orientation" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>    
+            <option value="4">4</option>                              
+          </select>
+          <select name="Perception" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>    
+            <option value="4">4</option>                              
+          </select>
+          <input type="number" name="ST" placeholder="ST" required="required" />
+          <input type="number" name="DT" placeholder="DT" required="required" />
+          <select name="complain" id="cars">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>                               
+          </select>
+       </div>
+      </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Detect</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+ </div>
+</body>
+</html>
